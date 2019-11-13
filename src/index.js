@@ -12,7 +12,7 @@ import {
 } from "./params";
 
 (async () => {
-  const success = true;
+  let success = true;
 
   const requestnetwork = new RequestNetwork({
     signatureProvider: new EthereumPrivateKeySignatureProvider(
@@ -60,6 +60,6 @@ import {
   }
 
   if (!success) {
-    throw new Error("test failed");
+    process.exit(1);
   }
 })();
