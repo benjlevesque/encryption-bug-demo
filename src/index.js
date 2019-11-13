@@ -59,5 +59,7 @@ import {
     success = false;
   }
 
-  process.exit(success ? 0 : 1);
+  if (!success) {
+    throw new Error("test failed");
+  }
 })();
