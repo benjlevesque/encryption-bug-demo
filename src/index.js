@@ -12,6 +12,8 @@ import {
 } from "./params";
 
 (async () => {
+  const success = true;
+
   const requestnetwork = new RequestNetwork({
     signatureProvider: new EthereumPrivateKeySignatureProvider(
       signerPrivateKey
@@ -35,6 +37,7 @@ import {
     console.log(request);
   } catch (e) {
     console.error(e);
+    success = false;
   }
 
   try {
@@ -53,5 +56,8 @@ import {
     console.log(decryptedData);
   } catch (e) {
     console.error(e);
+    success = false;
   }
+
+  process.exit(success ? 0 : 1);
 })();
